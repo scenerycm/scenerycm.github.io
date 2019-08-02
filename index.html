@@ -248,174 +248,22 @@
 
       
           
-            <h4 id="Prometheus-安装"><a href="#Prometheus-安装" class="headerlink" title="Prometheus 安装"></a>Prometheus 安装</h4><hr>
-<p>官网 <a href="https://prometheus.io/download/" target="_blank" rel="noopener">https://prometheus.io/download/</a>*</p>
-<p><em>Github <a href="https://github.com/prometheus/prometheus/releases" target="_blank" rel="noopener">https://github.com/prometheus/prometheus/releases</a></em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"></span><br><span class="line">wget https://github.com/prometheus/prometheus/releases/download/v2.10.0/prometheus-2.10.0.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf prometheus-2.10.0.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">cp -R  prometheus-2.10.0.linux-amd64 /usr/<span class="built_in">local</span>/prometheus</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/prometheus</span><br></pre></td></tr></table></figure>
-
-<p><em>默认端口9090</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./prometheus --config.file=prometheus.yml &gt; /var/<span class="built_in">log</span>/prometheus.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<p><em>开启防火墙</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=9090/tcp --permanent</span><br><span class="line"></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="Node-exporter-安装"><a href="#Node-exporter-安装" class="headerlink" title="Node_exporter 安装"></a>Node_exporter 安装</h4><hr>
-<p><em>Github <a href="https://github.com/prometheus/node_exporter/releases" target="_blank" rel="noopener">https://github.com/prometheus/node_exporter/releases</a></em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"></span><br><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf node_exporter-0.18.1.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">cp -R node_exporter-0.18.1.linux-amd64 /usr/<span class="built_in">local</span>/node_exporter</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/node_exporter</span><br></pre></td></tr></table></figure>
-
-<p><em>默认端口9100</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./node_exporter  &gt; /var/<span class="built_in">log</span>/node_exporter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<p><em>开启防火墙</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=9100/tcp --permanent</span><br><span class="line"></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<p><em>修改prometheus配置文件 prometheus.yml ，例下：</em></p>
-<blockquote>
-<p>scrape_configs:</p>
-<p>- job_name: ‘prometheus’</p>
-<p>​    static_configs:</p>
-<p>​      - targets: [‘prometheusHostIp:9090’]</p>
-<p>- job_name: ‘server’</p>
-<p>​    static_configs:</p>
-<p>​      - targets: [‘node_exporterHostIp:9100’]</p>
-</blockquote>
-<h4 id="AlertManager安装"><a href="#AlertManager安装" class="headerlink" title="AlertManager安装"></a>AlertManager安装</h4><hr>
-<p><em>Github <a href="https://github.com/prometheus/alertmanager/releases" target="_blank" rel="noopener">https://github.com/prometheus/alertmanager/releases</a></em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"></span><br><span class="line">wget https://github.com/prometheus/alertmanager/releases/download/v0.17.0/alertmanager-0.17.0.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><em>默认端口9093</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./alertmanager  &gt;&gt; /var/<span class="built_in">log</span>/alertmanager.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<p><em>开启防火墙</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=9093/tcp --permanent</span><br><span class="line"></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="开机启动脚本"><a href="#开机启动脚本" class="headerlink" title="开机启动脚本"></a>开机启动脚本</h4><hr>
-<blockquote>
-<p>#开机自启动脚本及配置方法</p>
-<p>#脚本放置目录/etc/rc.d/init.d</p>
-<p>#================nodeexporter==================</p>
-<p>#!/bin/bash</p>
-<p>#chkconfig: - 85 15</p>
-<p>#description:开机自启脚本</p>
-<p>nohup /usr/local/node_exporter/node_exporter  &gt; /var/log/node_exporter.log 2&gt;&amp;1 &amp;</p>
-<p>#===================END=======================</p>
-<p>#================prometheus==================</p>
-<p>#chkconfig: - 85 15</p>
-<p>#description:开机自启脚本</p>
-<p>nohup /usr/local/prometheus/prometheus –config.file=/usr/local/prometheus/prometheus.yml &gt; /var/log/prometheus.log 2&gt;&amp;1 &amp;</p>
-<p>#===================END=======================</p>
-<p>#================AlertManager==================</p>
-<p>#chkconfig: - 85 15</p>
-<p>#description:开机自启脚本</p>
-<p>nohup /usr/local/alertmanager/alertmanager  &gt;&gt; /var/log/alertmanager.log 2&gt;&amp;1 &amp;</p>
-<p>#===================END=======================</p>
-<p>#==========shell命令=================</p>
-<p>chmod +x  XXX.sh</p>
-<p>chkconfig –add XXX.sh</p>
-<p>chkconfig XXX.sh on</p>
-</blockquote>
-<h4 id="Prometheus基本配置文件模板"><a href="#Prometheus基本配置文件模板" class="headerlink" title="Prometheus基本配置文件模板"></a>Prometheus基本配置文件模板</h4><hr>
-<blockquote>
-<p>#=============Prometheus基本配置文件模板===================</p>
-<p># my global config</p>
-<p>global:</p>
-<p>scrape_interval:     15s  # Set the scrape interval to every 15 seconds. Default is every 1 minute.</p>
-<p>evaluation_interval: 15s  # Evaluate rules every 15 seconds. The default is every 1 minute.</p>
-<p>scrape_timeout:      10s  # scrape_timeout is set to the global default (10s).</p>
-<p># Alertmanager configuration</p>
-<p>alerting:</p>
-<p>alertmanagers:</p>
-<p>- scheme: http</p>
-<p>​    static_configs:</p>
-<p>​    - targets:</p>
-<p>​      - “localhost:9093”</p>
-<p>rule_files:</p>
-<p>- ‘/usr/local/prometheus/rules/hostBase.yml’</p>
-<p># Here it’s Prometheus itself.</p>
-<p>scrape_configs:</p>
-<p># The job name is added as a label <code>job=&lt;job_name&gt;</code> to any timeseries scraped from this config.</p>
-<p>- job_name: ‘prometheus’</p>
-<p>​    # metrics_path defaults to ‘/metrics’</p>
-<p>​    # scheme defaults to ‘http’.</p>
-<p>​    static_configs:</p>
-<p>​    - targets: [‘localhost:9090’]</p>
-<p>- job_name: ‘server_ansible &amp; Jenkins’</p>
-<p>​    static_configs:</p>
-<p>​    - targets: [‘主机IP:9100’]</p>
-</blockquote>
-<h4 id="AlertManager-相关配置"><a href="#AlertManager-相关配置" class="headerlink" title="AlertManager 相关配置"></a>AlertManager 相关配置</h4><hr>
-<h5 id="AlertManager-yml-配置"><a href="#AlertManager-yml-配置" class="headerlink" title="AlertManager.yml 配置"></a>AlertManager.yml 配置</h5><blockquote>
-<p>global:</p>
-<p>resolve_timeout: 5m</p>
-<p>wechat_api_url: “<a href="https://qyapi.weixin.qq.com/cgi-bin/&quot;" target="_blank" rel="noopener">https://qyapi.weixin.qq.com/cgi-bin/&quot;</a> # 这个暂时不用改,照抄</p>
-<p>wechat_api_secret: “相应的api_secret”</p>
-<p>wechat_api_corp_id: “相应的corp_id”</p>
-<p>templates:</p>
-<ul>
-<li>‘/usr/local/alertmanager/template/wechat.tmpl’</li>
-</ul>
-<p>route:</p>
-<p>group_by: [‘alertname’]</p>
-<p>group_wait: 10s</p>
-<p>group_interval: 10s</p>
-<p>repeat_interval: 20m</p>
-<p>receiver: wechat</p>
-<p>receivers:</p>
-<ul>
-<li>name: “wechat”</li>
-</ul>
-<p>wechat_configs:</p>
-<ul>
-<li>send_resolved: true</li>
-</ul>
-<p>​    to_user: “@all”   </p>
-<p>​    corp_id: “Corp_id同上”</p>
-<p>​    #to_party: “1”</p>
-<p>​    agent_id: “1000002”</p>
-<p>​    api_secret: “Api_secret同上”</p>
-</blockquote>
-<h5 id="wechat告警通知模板"><a href="#wechat告警通知模板" class="headerlink" title="wechat告警通知模板"></a>wechat告警通知模板</h5><blockquote>
-{{define "wechat.default.message" }}
-
-{{ if gt (len .Alerts.Firing) 0 -}}
-
-<p>Alerts Firing:</p>
-{{ range .Alerts}}
-
-<p>========start==========</p>
-<p>告警程序：prometheus_alert</p>
-<p>告警级别: {{ .Labels.severity }}</p>
-<p>告警类型: {{ .Labels.alertname }}</p>
-<p>故障主机: {{ .Labels.instance }}</p>
-<p>告警主题: {{ .Annotations.summary }}</p>
-<p>告警详情: {{ .Annotations.description }}</p>
-<p>触发时间: {{ .StartsAt.Format "2006-01-02 15:04:05" }}</p>
-<p>=========end==========</p>
-{{- end }}
-
-{{- end }}
-
-{{ if gt (len .Alerts.Resolved) 0 -}}
-
-<p>Alerts Resolved:</p>
-{{ range .Alerts}}
-
-<p>========start==========</p>
-<p>告警程序：prometheus_alert</p>
-<p>告警级别: {{ .Labels.severity }}</p>
-<p>告警类型: {{ .Labels.alertname }}</p>
-<p>故障主机: {{ .Labels.instance }}</p>
-<p>告警主题: {{ .Annotations.summary }}</p>
-<p>触发时间: {{ .StartsAt.Format "2006-01-02 15:04:05" }}</p>
-<p>恢复时间: {{ .EndsAt.Format "2006-01-02 15:04:05" }}</p>
-<p>=========end==========</p>
-{{- end }}
-
-{{- end }}
-
-{{- end }}</blockquote>
-
+            <p>
+              Prometheus 安装
+官网 https://prometheus.io/download/*
+Github https://github.com/prometheus/prometheus/releases
+cd /tmpwget https://github.com/prometheus/p
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/02/Prometheus-AlertManager-Install-HandBook/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -522,21 +370,19 @@
 
       
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <p>
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/31/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
