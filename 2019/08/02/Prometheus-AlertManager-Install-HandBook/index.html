@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="Prometheus 安装 官网 https://prometheus.io/download/* Github https://github.com/prometheus/prometheus/releases 123456789cd /tmpwget https://github.com/prometheus/prometheus/releases/download/v2.10.0/prome">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-02T06:08:02.236Z">
+<meta property="og:updated_time" content="2019-08-02T07:44:21.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prometheus+AlertManager Install HandBook">
 <meta name="twitter:description" content="Prometheus 安装 官网 https://prometheus.io/download/* Github https://github.com/prometheus/prometheus/releases 123456789cd /tmpwget https://github.com/prometheus/prometheus/releases/download/v2.10.0/prome">
@@ -229,12 +229,27 @@
                 
               
 
-              <time title="创建时间：2019-08-02 11:01:38 / 修改时间：14:08:02" itemprop="dateCreated datePublished" datetime="2019-08-02T11:01:38+08:00">2019-08-02</time>
+              <time title="创建时间：2019-08-02 11:01:38 / 修改时间：15:44:21" itemprop="dateCreated datePublished" datetime="2019-08-02T11:01:38+08:00">2019-08-02</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Prometheus/" itemprop="url" rel="index"><span itemprop="name">Prometheus</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           <br>
@@ -252,6 +267,8 @@
 <p>官网 <a href="https://prometheus.io/download/" target="_blank" rel="noopener">https://prometheus.io/download/</a>*</p>
 <p><em>Github <a href="https://github.com/prometheus/prometheus/releases" target="_blank" rel="noopener">https://github.com/prometheus/prometheus/releases</a></em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"></span><br><span class="line">wget https://github.com/prometheus/prometheus/releases/download/v2.10.0/prometheus-2.10.0.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf prometheus-2.10.0.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line">cp -R  prometheus-2.10.0.linux-amd64 /usr/<span class="built_in">local</span>/prometheus</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/prometheus</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <p><em>默认端口9090</em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./prometheus --config.file=prometheus.yml &gt; /var/<span class="built_in">log</span>/prometheus.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
@@ -503,7 +520,9 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
         
       </div>
