@@ -214,7 +214,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/Msql 5.7 安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/Msql 5.7 安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amin">
@@ -231,7 +231,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/08/06/Msql 5.7 安装/" class="post-title-link" itemprop="url">未命名</a>
+                <a href="/2019/08/07/Msql 5.7 安装/" class="post-title-link" itemprop="url">Msql 5.7 安装</a>
               
             
           </h1>
@@ -250,12 +250,27 @@
                 
               
 
-              <time title="创建时间：2019-08-06 19:10:34 / 修改时间：22:08:40" itemprop="dateCreated datePublished" datetime="2019-08-06T19:10:34+08:00">2019-08-06</time>
+              <time title="创建时间：2019-08-07 16:11:38 / 修改时间：16:11:24" itemprop="dateCreated datePublished" datetime="2019-08-07T16:11:38+08:00">2019-08-07</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           <br>
@@ -269,30 +284,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h3 id="Msql-5-7-安装"><a href="#Msql-5-7-安装" class="headerlink" title="Msql 5.7 安装"></a>Msql 5.7 安装</h3><p><strong>添加 Mysql 5.7 仓库</strong></p>
+          <h3 id="Msql-5-7-安装"><a href="#Msql-5-7-安装" class="headerlink" title="Msql 5.7 安装"></a>Msql 5.7 安装</h3><p><strong>添加 Mysql 5.7 仓库</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 <p><strong>确认Mysql仓库添加成功</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist all | grep mysql | grep enabled</span><br></pre></td></tr></table></figure>
-
-<p><strong>安装Mysql 5.7</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<p><strong>启动Mysql</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line">systemctl <span class="built_in">enable</span> mysqld</span><br></pre></td></tr></table></figure>
-
-<p><strong>安全设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /var/<span class="built_in">log</span>/mysqld.log | grep -i <span class="string">'temporary password'</span></span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
-
-<p><strong>设置数据库编码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">collation-server = utf8_unicode_ci</span><br><span class="line">init-connect=<span class="string">'SET NAMES utf8'</span></span><br><span class="line">character-set-server = utf8</span><br></pre></td></tr></table></figure>
-
-<p><strong>重启mysql</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/07/Msql 5.7 安装/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -590,7 +595,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -609,7 +616,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
