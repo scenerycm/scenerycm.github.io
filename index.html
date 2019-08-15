@@ -214,6 +214,614 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/Python 与 Mysql 数据库交互/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/15/Python 与 Mysql 数据库交互/" class="post-title-link" itemprop="url">Python 与 Mysql 数据库交互</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 00:00:00 / 修改时间：13:23:09" itemprop="dateCreated datePublished" datetime="2019-08-15T00:00:00+08:00">2019-08-15</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Python-与-Mysql-数据库交互"><a href="#Python-与-Mysql-数据库交互" class="headerlink" title="Python 与 Mysql 数据库交互"></a>Python 与 Mysql 数据库交互</h3><h5 id="使用pymsql-将-Dataframe-数据写入到MySQL库，使用-itertuples-迭代器以-tuple-取出每一行的数据"><a href="#使用pymsql-将-Dataframe-数据写入到MySQL库，使用-itertuples-迭代器以-tuple-取出每一行的数据" class="headerlink" title="使用pymsql 将 Dataframe 数据写入到MySQL库，使用 itertuples 迭代器以 tuple 取出每一行的数据"></a>使用pymsql 将 Dataframe 数据写入到MySQL库，使用 itertuples 迭代器以 tuple 取出每一行的数据</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time_start = time.time()</span><br><span class="line">con = pymysql.connect(host=<span class="string">'IP'</span>,port=<span class="number">3306</span>,user=<span class="string">'userName'</span>,password=<span class="string">'Password'</span>,database=<span class="string">'databaseName'</span>,charset=<span class="string">'utf8mb4'</span>)</span><br><span class="line">cur = con.cursor()</span><br><span class="line">df = df.fillna(<span class="string">'NULL'</span>)</span><br><span class="line">data_list = []</span><br><span class="line"><span class="comment">#使用 itertuples 迭代器以 tuple 取出每一行的数据，拼接为list</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> df.itertuples(index=<span class="literal">False</span>,name=<span class="literal">None</span>):</span><br><span class="line">    data_list.append(row)</span><br><span class="line"></span><br><span class="line">sql = <span class="string">'INSERT IGNORE INTO neZha_maoyan_comment(nickName,cityName,gender,content,score,userLevel,startTime) values(%s,%s,%s,%s,%s,%s,%s)'</span></span><br><span class="line">cur.execute(sql,data_list)</span><br><span class="line"><span class="comment">#写入要提交数据（事务）否则数据不会保存</span></span><br><span class="line">con.commit()</span><br><span class="line">cur.close()</span><br><span class="line">con.close()</span><br><span class="line">print(time.time()-time_start)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/Mysql 常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/12/Mysql 常用命令/" class="post-title-link" itemprop="url">Mysql 常用命令</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T00:00:00+08:00">2019-08-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-15 13:24:51" itemprop="dateModified" datetime="2019-08-15T13:24:51+08:00">2019-08-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Mysql-常用命令"><a href="#Mysql-常用命令" class="headerlink" title="Mysql 常用命令"></a>Mysql 常用命令</h3><p><strong>查询表中注释信息</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.columns</span><br><span class="line"><span class="keyword">where</span> table_schema = <span class="string">'dbName'</span> <span class="comment">#表所在数据库</span></span><br><span class="line"><span class="keyword">and</span> table_name = <span class="string">'tableName'</span> ; <span class="comment">#你要查的表</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/12/Mysql 常用命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/上海堡垒是烂片吗？数据一览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/11/上海堡垒是烂片吗？数据一览/" class="post-title-link" itemprop="url">上海堡垒是烂片吗？数据一览</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-11 21:01:38" itemprop="dateCreated datePublished" datetime="2019-08-11T21:01:38+08:00">2019-08-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-12 00:18:49" itemprop="dateModified" datetime="2019-08-12T00:18:49+08:00">2019-08-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电影/" itemprop="url" rel="index"><span itemprop="name">电影</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="上海堡垒是烂片吗？数据一览"><a href="#上海堡垒是烂片吗？数据一览" class="headerlink" title="上海堡垒是烂片吗？数据一览"></a>上海堡垒是烂片吗？数据一览</h3><p>《上海堡垒》于2019年8月9日上映，上映之后口碑一路走低。猫眼评论区充斥着半星及一星评分，猫眼都这种评价毫无疑问是烂片了，在微博上关注的几位KOL也都在疯狂吐槽这部电影。空口无凭，让我们通过数据看看网友们都是怎样评价这部电影的。开始之前我们先观摩一番电影海报，emmm 看着似乎还行。</p>
+<p><img src="C:%5CUsers%5Cscene%5CDesktop%5C1124812182_15643879586321n.jpg" alt="1124812182_15643879586321n"></p>
+<p>话不多说上数据，截至8月11日16点猫眼共31万人评分，得分三星 5.8 分，网友讨论数共 83456 条。接下来我们将从取得的 2019-08-11 02:44:21 到  2019-08-09 22:33:33 之间共 28302 名网友的猫眼评论数据，从评论内容、用户所在城市分布及性别等方面分析观众对这部电影的评价。本文使用的所有数据从采集到分析都使用 Python 进行。</p>
+<p>部分数据截图如下：</p>
+<p>![926183d8c1ea03a42bf993422812a51](C:\Users\scene\AppData\Local\Temp\WeChat Files\926183d8c1ea03a42bf993422812a51.png)</p>
+<p><strong>评论内容</strong></p>
+<p>评论内容是电影评价中最重要的内容。得益于移动互联网的发达，网友们可以随时随地在评论区留言，可以最直接的反映出观众在观影后的感受，或满意或失望。</p>
+<p>因为评论内容较多，将使用 jieba 分词结合词云（WordCloud）通过高频词汇的方式展现网友的观点。对近三万评论进行分词及过滤得到的词云如下图（毕竟也是国产电影悄悄用一下中国地图）：</p>
+<p><img src="C:%5CUsers%5Cscene%5COneDrive%5Cpython%5C%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%92%8C%E6%8F%90%E5%8F%96%5Cwebcrawler%5CshnaghaiBaoLei%5CanalysisOoutPut%5CWordCloud.png" alt="WordCloud"></p>
+<p>通过词云显示“特效”是评论中最高频的词汇，毕竟特效是科幻电影中的基本元素，对此类电影观众也比较看重特效带给人的感受；除了特效之外，从此云中可以看出电影中最重要的“剧情”以及演员的“演技”也是被观众看重的部分，一般来说我们评价一个东西会用 名词+形容词 的方式，词云中和“剧情”及“演技” 词频相近的形容词有 “不错”、“可以”，难道电影剧情和演技还不错、还可以？？？ 不过评论只是一个方面，而且词云上的词都是经过分词得到的简单词汇，中华文化博大精深，未经过语义分析仅从简单的名词及形容词上得到的好坏评价还是有差异的。</p>
+<p>其次，在好评中比较多的的有“好看”、“不错”等；差评也同样不少有“垃圾”、“烂片”等。但是从词频来看高分好评与低分差评似乎差别不大。</p>
+<p>在演员方面，关注度最多的是主演“鹿晗”及其饰演的角色“江洋” ， “舒淇”及其饰演的 “林澜”也有出现。</p>
+<p><strong>用户评分</strong></p>
+<p>接下来我们看评价中最直观重要的 “评分”，猫眼的评分可以打0.5分（半星）这点与豆瓣有所不同。评分方面不用多说大家心里应该也有数，，直接看图：</p>
+<p><img src="C:%5CUsers%5Cscene%5COneDrive%5Cpython%5C%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%92%8C%E6%8F%90%E5%8F%96%5Cwebcrawler%5CshnaghaiBaoLei%5CanalysisOoutPut%5Cscore_distribute.jpg" alt="score_distribute"></p>
+<p>从图中不难看出评分出现两极分化：高分与低分数量接近，中间分数相对平均，这点与之前词云显示一致。之所以评分出现两极分化，我推测是电影上映时间较短而且鹿晗粉丝效应明显，刚开始去观影的人群中粉丝占比较大故高分较多，随着时间的推移普通观众的比例开始增长，电影的真实性评分开始凸显。</p>
+<p><strong>用户所在城市分布</strong></p>
+<p><img src="C:%5CUsers%5Cscene%5COneDrive%5Cpython%5C%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%92%8C%E6%8F%90%E5%8F%96%5Cwebcrawler%5CshnaghaiBaoLei%5CanalysisOoutPut%5Ccity_distribute.jpg" alt="city_distribute"></p>
+<p>不出所料，北上广深作为一线城市排名前列，还有像成都、重庆、武汉、西安这样的二线城市紧随其后。这些经济实力较强的城市，文娱设施健全且观众基数较大，即便存在电影可能会存在一些问题，也还是有较多用户选择前往电影院先睹为快。</p>
+<p><strong>用户性别分布</strong></p>
+<p><img src="C:%5CUsers%5Cscene%5COneDrive%5Cpython%5C%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90%E5%92%8C%E6%8F%90%E5%8F%96%5Cwebcrawler%5CshnaghaiBaoLei%5CanalysisOoutPut%5Cgender_distribute.jpg" alt="gender_distribute"></p>
+<p>参与评论的用户中有 46% 不愿透露性别，剩余男性占 30%，女性占 23%。大胆猜测一下就算是有鹿晗可能对科幻电感兴趣的女生也比较少吧。</p>
+<p><strong>至于这部电影烂不烂已经不重要了，看电影图一乐呵，想看就看。</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/Python3安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/10/Python3安装/" class="post-title-link" itemprop="url">安装python3</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-10 11:01:38" itemprop="dateCreated datePublished" datetime="2019-08-10T11:01:38+08:00">2019-08-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-12 00:04:15" itemprop="dateModified" datetime="2019-08-12T00:04:15+08:00">2019-08-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="安装python3"><a href="#安装python3" class="headerlink" title="安装python3"></a>安装python3</h3><h4 id="以安装python3-6-6为例"><a href="#以安装python3-6-6为例" class="headerlink" title="以安装python3.6.6为例"></a>以安装python3.6.6为例</h4><p><em>安装包地址 <a href="https://www.python.org/ftp/python/" target="_blank" rel="noopener">https://www.python.org/ftp/python/</a></em></p>
+<p><strong>安装必要组件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel gcc make</span><br></pre></td></tr></table></figure>
+
+<p><strong>解压、编译安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装目录：/usr/<span class="built_in">local</span>/python3</span><br><span class="line">tar xvf Python-3.6.6.tar.xz</span><br><span class="line"><span class="built_in">cd</span> Python-3.6.6/</span><br><span class="line">./configure prefix=/usr/<span class="built_in">local</span>/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改软链接</strong></p>
+<p>注：不建议添加软链为 /usr/bin/python ；因为修改之后会影响使用 python2 的相关程序（yum、firewalld等）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">添加python3.6软链</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/python3/bin/python3.6 /usr/bin/python3</span><br><span class="line">查看 python 版本</span><br><span class="line">/usr/bin/python3 -V</span><br></pre></td></tr></table></figure>
+
+<p><strong>相关软链</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/python3  ----&gt; /usr/<span class="built_in">local</span>/python3/bin/python3.6</span><br><span class="line">/usr/bin/pip3  ---&gt;  /usr/<span class="built_in">local</span>/python3/bin/pip3</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h4><p>未开启远程登陆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户：root</span><br><span class="line">口令：mysql</span><br><span class="line">注：请尽快修改默认口令</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/10/Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束/" class="post-title-link" itemprop="url">Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-10T00:00:00+08:00">2019-08-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-15 13:25:51" itemprop="dateModified" datetime="2019-08-15T13:25:51+08:00">2019-08-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Mysql-主键约束、唯一约束、联合唯一约束、非空约束、外键约束"><a href="#Mysql-主键约束、唯一约束、联合唯一约束、非空约束、外键约束" class="headerlink" title="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束"></a>Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束</h3><h4 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束 PRIMARY KEY"></a>主键约束 PRIMARY KEY</h4><p>PRIMARY KEY 主键是唯一的，一张表只能有一个主键</p>
+<p>主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引</p>
+<p>主键不允许为空</p>
+<blockquote>
+<p>在创建表时，添加主键约束</p>
+<p>自动增长：如果某一列是数值类型的，使用 auto_increment 可以来完成值得自动增长</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; create table stu(</span><br><span class="line">&gt; 	Id int(11) NOT NULL AUTO_INCREMENT,     --自动增长数值</span><br><span class="line">&gt; 	username varchar(20) NOT NULL unique, </span><br><span class="line">&gt; 	PRIMARY KEY(Id)</span><br><span class="line">&gt; );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>删除自动增长</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE stu MODIFY Id int(11) NOT NULL;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>添加自动增长</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE stu MODIFY Id int(11) NOT NULL AUTO_INCREMENT;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>删除主键</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE stu DROP PRIMARY KEY;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>创建完表后添加主键</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE stu MODIFY Id int(11) NOT NULL PRIMARY KEY;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/10/Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/Msql 5.7 安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,11 +858,21 @@
                 
               
 
-              <time title="创建时间：2019-08-07 16:11:38 / 修改时间：16:11:24" itemprop="dateCreated datePublished" datetime="2019-08-07T16:11:38+08:00">2019-08-07</time>
+              <time title="创建时间：2019-08-07 16:11:38" itemprop="dateCreated datePublished" datetime="2019-08-07T16:11:38+08:00">2019-08-07</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-09 14:45:48" itemprop="dateModified" datetime="2019-08-09T14:45:48+08:00">2019-08-09</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -576,7 +1194,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -597,7 +1215,11 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -618,7 +1240,13 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
