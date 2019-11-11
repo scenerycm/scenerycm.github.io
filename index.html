@@ -920,7 +920,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-03 18:18:21" itemprop="dateModified" datetime="2019-09-03T18:18:21+08:00">2019-09-03</time>
+                <time title="修改时间：2019-11-11 13:57:18" itemprop="dateModified" datetime="2019-11-11T13:57:18+08:00">2019-11-11</time>
               </span>
             
           
@@ -952,8 +952,7 @@
 
       
           <h3 id="Mysql-常用命令"><a href="#Mysql-常用命令" class="headerlink" title="Mysql 常用命令"></a>Mysql 常用命令</h3><hr>
-<h4 id="表结构信息"><a href="#表结构信息" class="headerlink" title="表结构信息"></a>表结构信息</h4><p><strong>查询表中注释信息</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.columns</span><br><span class="line"><span class="keyword">where</span> table_schema = <span class="string">'dbName'</span> <span class="comment">#表所在数据库</span></span><br><span class="line"><span class="keyword">and</span> table_name = <span class="string">'tableName'</span> ; <span class="comment">#你要查的表</span></span><br></pre></td></tr></table></figure>
+<h5 id="查询表结构信息"><a href="#查询表结构信息" class="headerlink" title="查询表结构信息"></a>查询表结构信息</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">**表结构，字段类型，主键，是否为空等属性**</span><br><span class="line">desc tabl_name;</span><br><span class="line"></span><br><span class="line">**查询注释信息**</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.</span><br><span class="line"><span class="keyword">where</span> table_schema = <span class="string">'db'</span>  <span class="comment">#表所在数据库</span></span><br><span class="line"><span class="keyword">and</span> table_name = <span class="string">'tablename'</span> ; <span class="comment">#你要查的表</span></span><br><span class="line"></span><br><span class="line">**表中字段详细信息**</span><br><span class="line">desc tableName; <span class="comment">#简要信息</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">columns</span> <span class="keyword">from</span> tableName; <span class="comment">#详细信息</span></span><br><span class="line"></span><br><span class="line">**表中有多少条数据**</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName <span class="keyword">where</span> gender=‘<span class="literal">NULL</span>’；<span class="comment">#按条件查看，查看某个字段</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">

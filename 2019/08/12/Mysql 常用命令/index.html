@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="Mysql 常用命令 表结构信息查询表中注释信息 123select * from information_schema.columnswhere table_schema = &apos;dbName&apos; #表所在数据库and table_name = &apos;tableName&apos; ; #你要查的表">
+  <meta name="description" content="Mysql 常用命令 查询表结构信息123456789101112131415**表结构，字段类型，主键，是否为空等属性**desc tabl_name;**查询注释信息**select * from information_schema.where table_schema = &apos;db&apos;  #表所在数据库and table_name = &apos;tablename&apos; ; #你要查的表**表中字段详细信">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql 常用命令">
 <meta property="og:url" content="http://yoursite.com/2019/08/12/Mysql 常用命令/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Mysql 常用命令 表结构信息查询表中注释信息 123select * from information_schema.columnswhere table_schema = &apos;dbName&apos; #表所在数据库and table_name = &apos;tableName&apos; ; #你要查的表">
+<meta property="og:description" content="Mysql 常用命令 查询表结构信息123456789101112131415**表结构，字段类型，主键，是否为空等属性**desc tabl_name;**查询注释信息**select * from information_schema.where table_schema = &apos;db&apos;  #表所在数据库and table_name = &apos;tablename&apos; ; #你要查的表**表中字段详细信">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-03T10:18:21.393Z">
+<meta property="og:updated_time" content="2019-11-11T05:57:18.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 常用命令">
-<meta name="twitter:description" content="Mysql 常用命令 表结构信息查询表中注释信息 123select * from information_schema.columnswhere table_schema = &apos;dbName&apos; #表所在数据库and table_name = &apos;tableName&apos; ; #你要查的表">
+<meta name="twitter:description" content="Mysql 常用命令 查询表结构信息123456789101112131415**表结构，字段类型，主键，是否为空等属性**desc tabl_name;**查询注释信息**select * from information_schema.where table_schema = &apos;db&apos;  #表所在数据库and table_name = &apos;tablename&apos; ; #你要查的表**表中字段详细信">
   <link rel="canonical" href="http://yoursite.com/2019/08/12/Mysql 常用命令/">
 
 
@@ -264,7 +264,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-03 18:18:21" itemprop="dateModified" datetime="2019-09-03T18:18:21+08:00">2019-09-03</time>
+                <time title="修改时间：2019-11-11 13:57:18" itemprop="dateModified" datetime="2019-11-11T13:57:18+08:00">2019-11-11</time>
               </span>
             
           
@@ -296,18 +296,20 @@
 
       
         <h3 id="Mysql-常用命令"><a href="#Mysql-常用命令" class="headerlink" title="Mysql 常用命令"></a>Mysql 常用命令</h3><hr>
-<h4 id="表结构信息"><a href="#表结构信息" class="headerlink" title="表结构信息"></a>表结构信息</h4><p><strong>查询表中注释信息</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.columns</span><br><span class="line"><span class="keyword">where</span> table_schema = <span class="string">'dbName'</span> <span class="comment">#表所在数据库</span></span><br><span class="line"><span class="keyword">and</span> table_name = <span class="string">'tableName'</span> ; <span class="comment">#你要查的表</span></span><br></pre></td></tr></table></figure>
+<h5 id="查询表结构信息"><a href="#查询表结构信息" class="headerlink" title="查询表结构信息"></a>查询表结构信息</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">**表结构，字段类型，主键，是否为空等属性**</span><br><span class="line">desc tabl_name;</span><br><span class="line"></span><br><span class="line">**查询注释信息**</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.</span><br><span class="line"><span class="keyword">where</span> table_schema = <span class="string">'db'</span>  <span class="comment">#表所在数据库</span></span><br><span class="line"><span class="keyword">and</span> table_name = <span class="string">'tablename'</span> ; <span class="comment">#你要查的表</span></span><br><span class="line"></span><br><span class="line">**表中字段详细信息**</span><br><span class="line">desc tableName; <span class="comment">#简要信息</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">columns</span> <span class="keyword">from</span> tableName; <span class="comment">#详细信息</span></span><br><span class="line"></span><br><span class="line">**表中有多少条数据**</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName <span class="keyword">where</span> gender=‘<span class="literal">NULL</span>’；<span class="comment">#按条件查看，查看某个字段</span></span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<p>查看表中字段详细信息</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">desc tableName; <span class="comment">#简要信息</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">columns</span> <span class="keyword">from</span> tableName; <span class="comment">#详细信息</span></span><br></pre></td></tr></table></figure>
+<h5 id="查看表生成的DDL"><a href="#查看表生成的DDL" class="headerlink" title="查看表生成的DDL"></a>查看表生成的DDL</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> table_name;</span><br></pre></td></tr></table></figure>
 
-<p>查看表中有多少条数据</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tableName <span class="keyword">where</span> gender=‘<span class="literal">NULL</span>’；<span class="comment">#按条件查看，查看某个字段</span></span><br></pre></td></tr></table></figure>
+<h5 id="Mysql-新建用户及赋权"><a href="#Mysql-新建用户及赋权" class="headerlink" title="Mysql 新建用户及赋权"></a>Mysql 新建用户及赋权</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">**创建用户**</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'operator'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>;</span><br><span class="line">**删除用户**</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">'username'</span>@<span class="string">'host'</span>;</span><br><span class="line"></span><br><span class="line">**授权**</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">privileges</span> <span class="keyword">ON</span> databasename.tablename <span class="keyword">TO</span> <span class="string">'username'</span>@<span class="string">'host'</span></span><br><span class="line">**例子**</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, <span class="keyword">INSERT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> <span class="string">'operator'</span>@<span class="string">'%'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'operator'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="SQL模糊查询"><a href="#SQL模糊查询" class="headerlink" title="SQL模糊查询"></a>SQL模糊查询</h4><h3 id="Postgresql常用命令"><a href="#Postgresql常用命令" class="headerlink" title="Postgresql常用命令"></a>Postgresql常用命令</h3><hr>
+<h5 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">'operator'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'password'</span>；</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+<p>### </p>
+<h5 id="查询用户详细信息"><a href="#查询用户详细信息" class="headerlink" title="查询用户详细信息"></a>查询用户详细信息</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,authentication_string,host <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Postgresql常用命令"><a href="#Postgresql常用命令" class="headerlink" title="Postgresql常用命令"></a>Postgresql常用命令</h3><hr>
 <h4 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h4><p><strong>查询数据库、表大小信息</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pg_size_pretty(pg_database_size(<span class="string">'prometheus'</span>));    <span class="comment">#查看数据库大小</span></span><br></pre></td></tr></table></figure>
 
@@ -488,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-常用命令"><span class="nav-number">1.</span> <span class="nav-text">Mysql 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表结构信息"><span class="nav-number">1.1.</span> <span class="nav-text">表结构信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL模糊查询"><span class="nav-number">1.2.</span> <span class="nav-text">SQL模糊查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Postgresql常用命令"><span class="nav-number">2.</span> <span class="nav-text">Postgresql常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础操作"><span class="nav-number">2.1.</span> <span class="nav-text">基础操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-常用命令"><span class="nav-number">1.</span> <span class="nav-text">Mysql 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询表结构信息"><span class="nav-number">1.0.1.</span> <span class="nav-text">查询表结构信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看表生成的DDL"><span class="nav-number">1.0.2.</span> <span class="nav-text">查看表生成的DDL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mysql-新建用户及赋权"><span class="nav-number">1.0.3.</span> <span class="nav-text">Mysql 新建用户及赋权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改密码"><span class="nav-number">1.0.4.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询用户详细信息"><span class="nav-number">1.0.5.</span> <span class="nav-text">查询用户详细信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Postgresql常用命令"><span class="nav-number">2.</span> <span class="nav-text">Postgresql常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础操作"><span class="nav-number">2.1.</span> <span class="nav-text">基础操作</span></a></li></ol></li></ol></div>
             
 
           </div>
