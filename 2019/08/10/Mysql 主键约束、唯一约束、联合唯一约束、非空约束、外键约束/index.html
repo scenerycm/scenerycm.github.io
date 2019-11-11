@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空  在创建表时，添加主键约束 自动增长：如果某一列是数值类型的，使用 auto_increment 可以来完成值得自动增长 123456&amp;gt; crea">
+  <meta name="description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束">
 <meta property="og:url" content="http://yoursite.com/2019/08/10/Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空  在创建表时，添加主键约束 自动增长：如果某一列是数值类型的，使用 auto_increment 可以来完成值得自动增长 123456&amp;gt; crea">
+<meta property="og:description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T05:25:51.847Z">
+<meta property="og:updated_time" content="2019-11-11T03:29:21.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束">
-<meta name="twitter:description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空  在创建表时，添加主键约束 自动增长：如果某一列是数值类型的，使用 auto_increment 可以来完成值得自动增长 123456&amp;gt; crea">
+<meta name="twitter:description" content="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束主键约束 PRIMARY KEYPRIMARY KEY 主键是唯一的，一张表只能有一个主键 主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引 主键不允许为空">
   <link rel="canonical" href="http://yoursite.com/2019/08/10/Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束/">
 
 
@@ -264,7 +264,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-15 13:25:51" itemprop="dateModified" datetime="2019-08-15T13:25:51+08:00">2019-08-15</time>
+                <time title="修改时间：2019-11-11 11:29:21" itemprop="dateModified" datetime="2019-11-11T11:29:21+08:00">2019-11-11</time>
               </span>
             
           
@@ -298,6 +298,8 @@
         <h3 id="Mysql-主键约束、唯一约束、联合唯一约束、非空约束、外键约束"><a href="#Mysql-主键约束、唯一约束、联合唯一约束、非空约束、外键约束" class="headerlink" title="Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束"></a>Mysql 主键约束、唯一约束、联合唯一约束、非空约束、外键约束</h3><h4 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束 PRIMARY KEY"></a>主键约束 PRIMARY KEY</h4><p>PRIMARY KEY 主键是唯一的，一张表只能有一个主键</p>
 <p>主键可以由多个字段组合而成（字段越少越好），多个字段时复合主键形成唯一索引</p>
 <p>主键不允许为空</p>
+<a id="more"></a>
+
 <blockquote>
 <p>在创建表时，添加主键约束</p>
 <p>自动增长：如果某一列是数值类型的，使用 auto_increment 可以来完成值得自动增长</p>
@@ -319,8 +321,6 @@
 <p>创建完表后添加主键</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE stu MODIFY Id int(11) NOT NULL PRIMARY KEY;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<a id="more"></a>
-
 <h4 id="唯一约束-UNIQUE-KEY"><a href="#唯一约束-UNIQUE-KEY" class="headerlink" title="唯一约束 UNIQUE KEY"></a>唯一约束 UNIQUE KEY</h4><p>唯一约束可以保证数据的唯一性</p>
 <p>每张表可以存在多个唯一约束</p>
 <p>唯一约束的字段可以为空</p>
@@ -461,7 +461,9 @@
         
           
         
-        <span class="site-state-item-count">8</span>
+          
+        
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -496,7 +498,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
