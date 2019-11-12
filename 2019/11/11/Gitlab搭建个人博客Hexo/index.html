@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="Gitlab搭建个人博客Hexo 为什么选择Gitlab之前使用的 Github+Hexo 搭建的个人博客，但是github目前不允许百度蜘蛛的爬取。为了能被百度正常收录，将博客迁移至Gitlab上，Gitlab pages搭建的个人博客可以被百度正常收录。 安装环境安装Node.js从 Node.js 官网：https://nodejs.org/en/  下载软件，按默认选项安装即可。完成安装后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blog">
+<meta property="og:url" content="http://yoursite.com/2019/11/11/Gitlab搭建个人博客Hexo/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Gitlab搭建个人博客Hexo 为什么选择Gitlab之前使用的 Github+Hexo 搭建的个人博客，但是github目前不允许百度蜘蛛的爬取。为了能被百度正常收录，将博客迁移至Gitlab上，Gitlab pages搭建的个人博客可以被百度正常收录。 安装环境安装Node.js从 Node.js 官网：https://nodejs.org/en/  下载软件，按默认选项安装即可。完成安装后">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-11T11:06:15.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog">
+<meta name="twitter:description" content="Gitlab搭建个人博客Hexo 为什么选择Gitlab之前使用的 Github+Hexo 搭建的个人博客，但是github目前不允许百度蜘蛛的爬取。为了能被百度正常收录，将博客迁移至Gitlab上，Gitlab pages搭建的个人博客可以被百度正常收录。 安装环境安装Node.js从 Node.js 官网：https://nodejs.org/en/  下载软件，按默认选项安装即可。完成安装后">
+  <link rel="canonical" href="http://yoursite.com/2019/11/11/Gitlab搭建个人博客Hexo/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一日看尽长安花</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+    </ul>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/Gitlab搭建个人博客Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amin">
+      <meta itemprop="description" content="技术、摄影">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-11 15:48:34 / 修改时间：19:06:15" itemprop="dateCreated datePublished" datetime="2019-11-11T15:48:34+08:00">2019-11-11</time>
+            </span>
+          
+            
+
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Gitlab搭建个人博客Hexo"><a href="#Gitlab搭建个人博客Hexo" class="headerlink" title="Gitlab搭建个人博客Hexo"></a>Gitlab搭建个人博客Hexo</h3><hr>
+<h4 id="为什么选择Gitlab"><a href="#为什么选择Gitlab" class="headerlink" title="为什么选择Gitlab"></a>为什么选择Gitlab</h4><p>之前使用的 Github+Hexo 搭建的个人博客，但是github目前不允许百度蜘蛛的爬取。为了能被百度正常收录，将博客迁移至Gitlab上，Gitlab pages搭建的个人博客可以被百度正常收录。</p>
+<h4 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h4><h5 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h5><p>从 Node.js 官网：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a>  下载软件，按默认选项安装即可。完成安装后打开 cmd ，输入  node -v ，查看版本号。</p>
+<h5 id="初始化-hexo-博客"><a href="#初始化-hexo-博客" class="headerlink" title="初始化 hexo 博客"></a>初始化 hexo 博客</h5><p>在本地新建一个目录，在该目录下打开cmd 或 git bash ，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #安装hexo命令行工具</span><br><span class="line">hexo init #下载hexo博客初始源码</span><br><span class="line">npm install #安装npm</span><br><span class="line">hexo s 或 hexo server #启动本地服务器,预览本地hexo博客</span><br></pre></td></tr></table></figure>
+
+<p>初始化安装完成，可以通过本地预览看到博客界面。</p>
+<h4 id="部署-hexo-博客到-Gitlab-Pages"><a href="#部署-hexo-博客到-Gitlab-Pages" class="headerlink" title="部署 hexo 博客到 Gitlab Pages"></a>部署 hexo 博客到 Gitlab Pages</h4><h5 id="新建-Gitlab-Pages-仓库"><a href="#新建-Gitlab-Pages-仓库" class="headerlink" title="新建 Gitlab Pages 仓库"></a>新建 Gitlab Pages 仓库</h5><p>注册或登录自己的 Gitlab，新建一个名为 username.gitlab.io 的项目，username 就是用户名，这里与 Github 基本一样。</p>
+<h5 id="Gitlab-账号提添加-SSH-Key"><a href="#Gitlab-账号提添加-SSH-Key" class="headerlink" title="Gitlab 账号提添加 SSH Key"></a>Gitlab 账号提添加 SSH Key</h5><p>在 Gitlab 账号设置中，添加本地 ssh 公钥，本地 ssh 密钥对位置：C 盘用户目录下。添加完后设置相应的gitlab信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your_name&quot;</span><br><span class="line">git config --global user.email &quot;your_email&quot;</span><br><span class="line"># --global参数表示你这台机器上所有的Git仓库都会使用这个用户名和邮箱地址的配置来提交，当然也可以对某个仓库指定不同的用户名和Email地址</span><br><span class="line"># 用户名和邮箱地址是本地git客户端的一个变量,每次commit都会用用户名和邮箱纪录,github的contributions统计就是按邮箱来统计的。</span><br></pre></td></tr></table></figure>
+
+<p>对ssh登录进行测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T gitlab@gitlab.com</span><br></pre></td></tr></table></figure>
+
+<h5 id="hexo-博客源码目录下添加-gitlab-ci-yml"><a href="#hexo-博客源码目录下添加-gitlab-ci-yml" class="headerlink" title="hexo 博客源码目录下添加  .gitlab-ci.yml"></a>hexo 博客源码目录下添加  .gitlab-ci.yml</h5><p>Github 与Gitlab 不同的一点是：Github上部署博客，是在本地生成静态网页及文件，再推送到github仓库中。Gitlab上部署博客，网页的生成和部署都需要再Gitlab服务器端完成，这里就需要用到 .gitlab-ci.yml 文件来指导 Gitlab 服务器如何处理你提交的源文件。</p>
+<p>最新的.gitlab-ci.yml文件官方版本可以从这个仓库中获取：<a href="https://gitlab.com/pages/hexo/blob/master/.gitlab-ci.yml" target="_blank" rel="noopener">https://gitlab.com/pages/hexo/blob/master/.gitlab-ci.yml</a> </p>
+<p><strong>.gitlab-ci.yml 文件如下：</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">image:</span> <span class="attr">node:10.15.3</span></span><br><span class="line"></span><br><span class="line"><span class="attr">cache:</span></span><br><span class="line"><span class="attr">  paths:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">node_modules/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">before_script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-cli</span> <span class="bullet">-g</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">test</span> <span class="bullet">-e</span> <span class="string">package.json</span> <span class="string">&amp;&amp;</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"></span><br><span class="line"><span class="attr">pages:</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"><span class="attr">  artifacts:</span></span><br><span class="line"><span class="attr">    paths:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">public</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="本地源码推送到-Gitlab-仓库"><a href="#本地源码推送到-Gitlab-仓库" class="headerlink" title="本地源码推送到 Gitlab 仓库"></a>本地源码推送到 Gitlab 仓库</h5><p>本地 hexo 源码目录：如果不能强制 push 源码，需要到 gitlab 项目设置中关闭分支保护。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;init blog&quot;</span><br><span class="line">git remote add origin git@gitlab.com:username/username.gitlab.io.git</span><br><span class="line">git push -u origin master -f</span><br></pre></td></tr></table></figure>
+
+<p>源码推送完成后，Gitlab 会检查 .gitlab-ci.yml 检查通过后，会自动执行脚本生成网页及发布博客。在 CI/CD 选项中可以查看自动化构建的进度。由于 Gitlab 服务器构建速度较慢，所以马上访问可能会出现404错误页面，一般等待几分钟之后重新访问即可。</p>
+<h4 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h4><p>如果自己有域名的话，还以将自己的域名解析到 Gitlab 博客上。因为 Gitlab 提供的是 https 访问，所以需要为自己的域名申请一个 ssl 证书，对于单个域名可以申请免费的证书。腾讯云对单个域名申请有效期1年的免费证书，证书由 亚洲诚信 颁发。</p>
+<p><strong>申请方式</strong>：登录腾讯云 <a href="https://cloud.tencent.com/" target="_blank" rel="noopener">https://cloud.tencent.com/</a> ，进入控制台选择产品 ssl证书，按照说明 添加一条TXT解析 即可申请免费证书。</p>
+<p>申请到证书后下载并解压，到 Gitlab 仓库中选择左侧面板 settings-&gt;pages-&gt;new domain。Domain 项填入我们的个人域名，certificate 和 key 分别填写申请到的证书 .crt 和 .key 文件内容，然后点击create new domain。</p>
+<p>最后到域名解析控制台添加一条 CNAME 记录，解析指向 username.gitlab.io ，待解析生效后即可使用个人域名访问博客了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/11/09/Prometheus-监控-k8s/" rel="next" title="Prometheus-监控-k8s">
+                <i class="fa fa-chevron-left"></i> Prometheus-监控-k8s
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Amin</p>
+  <div class="site-description motion-element" itemprop="description">技术、摄影</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitlab搭建个人博客Hexo"><span class="nav-number">1.</span> <span class="nav-text">Gitlab搭建个人博客Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么选择Gitlab"><span class="nav-number">1.1.</span> <span class="nav-text">为什么选择Gitlab</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装环境"><span class="nav-number">1.2.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装Node-js"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化-hexo-博客"><span class="nav-number">1.2.2.</span> <span class="nav-text">初始化 hexo 博客</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署-hexo-博客到-Gitlab-Pages"><span class="nav-number">1.3.</span> <span class="nav-text">部署 hexo 博客到 Gitlab Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建-Gitlab-Pages-仓库"><span class="nav-number">1.3.1.</span> <span class="nav-text">新建 Gitlab Pages 仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Gitlab-账号提添加-SSH-Key"><span class="nav-number">1.3.2.</span> <span class="nav-text">Gitlab 账号提添加 SSH Key</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-博客源码目录下添加-gitlab-ci-yml"><span class="nav-number">1.3.3.</span> <span class="nav-text">hexo 博客源码目录下添加  .gitlab-ci.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#本地源码推送到-Gitlab-仓库"><span class="nav-number">1.3.4.</span> <span class="nav-text">本地源码推送到 Gitlab 仓库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定个人域名"><span class="nav-number">1.4.</span> <span class="nav-text">绑定个人域名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
